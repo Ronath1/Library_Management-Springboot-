@@ -1,12 +1,13 @@
-package Library_Management.Springboot.controller;
+package com.library.management.controller;
 
-import Library_Management.Springboot.entity.Book;
-import Library_Management.Springboot.service.BookService;
+import com.library.management.entity.Book;
+import com.library.management.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
@@ -41,7 +42,7 @@ public class BookController {
     public Book updateBook(
             @PathVariable Long id,
             @RequestBody Book bookDetails,
-            @RequestParam(name = "categoryId") Long categoryId) { // Ensure name matches URL
+            @RequestParam(name = "categoryId") Long categoryId) {
         return bookService.updateBook(id, bookDetails, categoryId);
     }
 }

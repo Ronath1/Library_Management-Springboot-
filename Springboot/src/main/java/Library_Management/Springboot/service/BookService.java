@@ -1,9 +1,9 @@
-package com.library.management.service;
+package Library_Management.Springboot.service;
 
-import com.library.management.entity.Book;
-import com.library.management.entity.Category;
-import com.library.management.repository.BookRepository;
-import com.library.management.repository.CategoryRepository;
+import Library_Management.Springboot.entity.Book;
+import Library_Management.Springboot.entity.Category;
+import Library_Management.Springboot.repository.BookRepository;
+import Library_Management.Springboot.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;

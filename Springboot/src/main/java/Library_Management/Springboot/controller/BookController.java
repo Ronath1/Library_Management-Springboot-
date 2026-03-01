@@ -1,7 +1,7 @@
-package com.library.management.controller;
+package Library_Management.Springboot.controller;
 
-import com.library.management.entity.Book;
-import com.library.management.service.BookService;
+import Library_Management.Springboot.entity.Book;
+import Library_Management.Springboot.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

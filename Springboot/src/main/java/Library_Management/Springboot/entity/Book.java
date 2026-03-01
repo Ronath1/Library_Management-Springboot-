@@ -1,5 +1,5 @@
 
-package com.library.management.entity;
+package Library_Management.Springboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

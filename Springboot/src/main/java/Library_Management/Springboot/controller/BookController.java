@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
@@ -41,7 +42,7 @@ public class BookController {
     public Book updateBook(
             @PathVariable Long id,
             @RequestBody Book bookDetails,
-            @RequestParam(name = "categoryId") Long categoryId) { // Ensure name matches URL
+            @RequestParam(name = "categoryId") Long categoryId) {
         return bookService.updateBook(id, bookDetails, categoryId);
     }
 }

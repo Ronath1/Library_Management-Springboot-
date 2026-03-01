@@ -1,6 +1,6 @@
-package com.library.management.repository;
+package Library_Management.Springboot.repository;
 
-import com.library.management.entity.Book;
+import Library_Management.Springboot.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

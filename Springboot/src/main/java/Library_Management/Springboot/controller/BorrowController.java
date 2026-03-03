@@ -1,7 +1,7 @@
 package  Library_Management.Springboot.controller;
 
-import com.library.management.entity.Borrow;
-import com.library.management.service.BorrowService;
+import Library_Management.Springboot.entity.Borrow;
+import Library_Management.Springboot.service.BorrowService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

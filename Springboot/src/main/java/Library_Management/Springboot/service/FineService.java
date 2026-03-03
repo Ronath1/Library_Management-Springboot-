@@ -1,8 +1,8 @@
 package Library_Management.Springboot.service;
 
 import Library_Management.Springboot.repository.FineRepository;
-import com.library.management.entity.Borrow;
-import com.library.management.entity.Fine;
+import Library_Management.Springboot.entity.Borrow;
+import Library_Management.Springboot.entity.Fine;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

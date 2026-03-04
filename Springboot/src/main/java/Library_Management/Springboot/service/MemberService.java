@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MemberService {
+    
 
     private final MemberRepository memberRepository;
     private final NotificationService notificationService; // Added

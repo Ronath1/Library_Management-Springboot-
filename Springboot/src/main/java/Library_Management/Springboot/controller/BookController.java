@@ -42,7 +42,7 @@ public class BookController {
     public Book updateBook(
             @PathVariable Long id,
             @RequestBody Book bookDetails,
-            @RequestParam(name = "categoryId") Long categoryId) {
+            @RequestParam(name = "categoryId", required = false) Long categoryId) { // Added required = false
         return bookService.updateBook(id, bookDetails, categoryId);
     }
 }

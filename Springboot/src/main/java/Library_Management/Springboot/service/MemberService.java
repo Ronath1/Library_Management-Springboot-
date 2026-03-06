@@ -9,7 +9,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MemberService {
-    
 
     private final MemberRepository memberRepository;
     private final NotificationService notificationService; // Added
@@ -42,14 +41,22 @@ public class MemberService {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Member not found with id: " + id));
 
-        member.setName(memberDetails.getName());
-        member.setEmail(memberDetails.getEmail());
-        member.setPhone(memberDetails.getPhone());
+        if (memberDetails.getName() != null && !memberDetails.getName().isEmpty()) {
+            member.setName(memberDetails.getName());
+        }
 
+        if (memberDetails.getEmail() != null && !memberDetails.getEmail().isEmpty()) {
+            member.setEmail(memberDetails.getEmail());
+        }
+
+
+        if (memberDetails.getPhone() != null && !memberDetails.getPhone().isEmpty()) {
+            member.setPhone(memberDetails.getPhone());
+        }
+
+        // 5. Save the modified 'member' object
         Member updatedMember = memberRepository.save(member);
         notificationService.createNotification("Updated member profile: " + updatedMember.getName());
         return updatedMember;
     }
 }
-
-

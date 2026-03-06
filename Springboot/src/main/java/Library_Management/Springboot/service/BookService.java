@@ -46,13 +46,28 @@ public class BookService {
     }
 
     public Book updateBook(Long id, Book bookDetails, Long categoryId) {
-        Book existingBook = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found"));
 
-        existingBook.setTitle(bookDetails.getTitle());
-        existingBook.setAuthor(bookDetails.getAuthor());
-        existingBook.setIsbn(bookDetails.getIsbn());
-        existingBook.setQuantity(bookDetails.getQuantity());
+        Book existingBook = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+
+
+        if (bookDetails.getTitle() != null && !bookDetails.getTitle().isEmpty()) {
+            existingBook.setTitle(bookDetails.getTitle());
+        }
+
+        if (bookDetails.getAuthor() != null && !bookDetails.getAuthor().isEmpty()) {
+            existingBook.setAuthor(bookDetails.getAuthor());
+        }
+
+        if (bookDetails.getIsbn() != null && !bookDetails.getIsbn().isEmpty()) {
+            existingBook.setIsbn(bookDetails.getIsbn());
+        }
+
+
+        if (bookDetails.getQuantity() != null) {
+            existingBook.setQuantity(bookDetails.getQuantity());
+        }
+
 
         if (categoryId != null) {
             Category newCategory = categoryRepository.findById(categoryId)
@@ -61,7 +76,9 @@ public class BookService {
         }
 
         Book updatedBook = bookRepository.save(existingBook);
-        notificationService.createNotification("Updated book details: " + updatedBook.getTitle());
+
+        notificationService.createNotification("Updated book: " + updatedBook.getTitle());
         return updatedBook;
     }
+
 }
